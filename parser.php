@@ -26,7 +26,11 @@ $headers[] = "Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;
 $headers[] = "Accept-Encoding: gzip, deflate";
 
 $username = $_POST['username'];
-$password = $_['password'];
+$password = $_POST['password'];
+
+if (!$username || !$password) {
+	die('{"Error":"No username or password provided"}');
+}
 
 $data = array(
 	'asdf'	=> $username,
@@ -65,13 +69,17 @@ curl_setopt($ch, CURLOPT_POST, 0);
 curl_setopt($ch, CURLOPT_POSTFIELDS, NULL);
 curl_setopt($ch, CURLOPT_REFERER, $startpage);
 
-$html = preg_match('#<a(.*?)href="(.*?)"(.*?)>(.*?)Prüfungen</a>#i', $html, $matches);
+if (!preg_match('#<a(.*?)href="(.*?)"(.*?)>(.*?)Prüfungen</a>#i', $html, $matches)) {
+	die('{"Error":"Login information wrong"}');
+}
 $nextPage = str_replace('&amp;','&',$matches[2]);
 curl_setopt($ch, CURLOPT_URL, $nextPage);
 $html = curl_exec($ch);
 curl_setopt($ch, CURLOPT_REFERER, $nextPage);
 
-preg_match('#<a(.*?)href="(.*?)"(.*?)>Notenspiegel</a>#i', $html, $matches);
+if (!preg_match('#<a(.*?)href="(.*?)"(.*?)>Notenspiegel</a>#i', $html, $matches)) {
+	die('{"Error":"Could not fetch data"}');
+}
 $notenPage = str_replace('&amp;','&',$matches[2]);
 
 curl_setopt($ch, CURLOPT_URL, $notenPage);
