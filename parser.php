@@ -2,18 +2,18 @@
 $regexp = '#<tr>[\s\t\n\r]*'.
 	'(?P<parent><!--[\s\t\n\r]*-->)?[\s\t\n\r]*'.
 	'<td[^>]*>[\s\t\n\r]*(<b>)?(?P<nr>[\d]*?)?(</b>)?[\s\t\n\r]*</td>[\s\t\n\r]*'.
-	'<td[^>]*>[\s\t\n\r]*(?P<name>[\w\s\d-_]*?)[\s\t\n\r]*</td>[\s\t\n\r]*'.
-	'<td[^>]*>[\s\t\n\r]*(?P<art>[\w]*?)[\s\t\n\r]*</td>[\s\t\n\r]*'.
-	'<td[^>]*>[\s\t\n\r]*(?P<note>[\d,]*?)[\s\t\n\r]*'.
-	'(<a(.*?)href="(?<detailpage>([^"]*))"(.*?)</a>)?[\s\t\n\r]*'.
+	'<td[^>]*>[\s\t\n\r]*(?P<name>[^<]*?)[\s\t\n\r]*</td>[\s\t\n\r]*'.
+	'<td[^>]*>[\s\t\n\r]*(?P<art>[^<]*?)[\s\t\n\r]*</td>[\s\t\n\r]*'.
+	'<td[^>]*>[\s\t\n\r]*(?P<note>[^<]*?)[\s\t\n\r]*'.
+		'(<a(.*?)href="(?<detailpage>([^"]*))"(.*?)</a>)?[\s\t\n\r]*'.
 	'</td>[\s\t\n\r]*'.
-	'<td[^>]*>[\s\t\n\r]*(?P<status>[\w]*?)[\s\t\n\r]*</td>[\s\t\n\r]*'.
-	'<td[^>]*>[\s\t\n\r]*(?P<vermerk>[\*\s\w\d-_]*?)[\s\t\n\r]*</td>[\s\t\n\r]*'.
-	'<td[^>]*>[\s\t\n\r]*(?P<credits>[\d]*?)[\s\t\n\r]*</td>[\s\t\n\r]*'.
-	'<td[^>]*>[\s\t\n\r]*(?P<versuch>[\d]*?)[\s\t\n\r]*</td>[\s\t\n\r]*'.
-	'<td[^>]*>[\s\t\n\r]*(?P<semester>[\w \d\/-]*?)[\s\t\n\r]*</td>[\s\t\n\r]*'.
-	'<td[^>]*>[\s\t\n\r]*(?P<pdatum>[\.\d]*?)[\s\t\n\r]*</td>[\s\t\n\r]*'.
-	'<td[^>]*>[\s\t\n\r]*(?P<adatum>[\.\d]*?)[\s\t\n\r]*</td>[\s\t\n\r]*</tr>#i';
+	'<td[^>]*>[\s\t\n\r]*(?P<status>[^<]*?)[\s\t\n\r]*</td>[\s\t\n\r]*'.
+	'<td[^>]*>[\s\t\n\r]*(?P<vermerk>[^<]*?)[\s\t\n\r]*</td>[\s\t\n\r]*'.
+	'<td[^>]*>[\s\t\n\r]*(?P<credits>[^<]*?)[\s\t\n\r]*</td>[\s\t\n\r]*'.
+	'<td[^>]*>[\s\t\n\r]*(?P<versuch>[^<]*?)[\s\t\n\r]*</td>[\s\t\n\r]*'.
+	'<td[^>]*>[\s\t\n\r]*(?P<semester>[^<]*?)[\s\t\n\r]*</td>[\s\t\n\r]*'.
+	'<td[^>]*>[\s\t\n\r]*(?P<pdatum>[^<]*?)[\s\t\n\r]*</td>[\s\t\n\r]*'.
+	'<td[^>]*>[\s\t\n\r]*(?P<adatum>[^<]*?)[\s\t\n\r]*</td>[\s\t\n\r]*</tr>#i';
 
 
 $startpage = 'https://qispos.fh-hannover.de/qisserver/rds?state=user&type=1&category=auth.login&startpage=portal.vm';
