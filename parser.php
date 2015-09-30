@@ -40,7 +40,7 @@ $data = array(
 
 $postinfo = http_build_query($data);
 
-$ck = "./cookie.txt";
+$ck = "./cookie_".uniqid().".txt";
 
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_HEADER, false);
@@ -172,5 +172,6 @@ while (preg_match('#<a(.*?)href="(?P<href>.*?)"(.*?)title="Leistungen für Absch
 	$abschluesse[$abschluss] = $result;
 }
 curl_close($ch);
+unlink($ck);
 print(json_encode($abschluesse));
 print "\n";
