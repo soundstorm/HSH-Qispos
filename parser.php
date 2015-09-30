@@ -3,7 +3,7 @@ $regexp = '#<tr>[\s\t\n\r]*'.
 	'(?P<parent><!--[\s\t\n\r]*-->)?[\s\t\n\r]*'.
 	'<td[^>]*>[\s\t\n\r]*(<b>)?(?P<nr>[\d]*?)?(</b>)?[\s\t\n\r]*</td>[\s\t\n\r]*'.
 	'<td[^>]*>[\s\t\n\r]*(?P<name>[^<]*?)[\s\t\n\r]*</td>[\s\t\n\r]*'.
-	'<td[^>]*>[\s\t\n\r]*(?P<art>[^<]*?)[\s\t\n\r]*</td>[\s\t\n\r]*'.
+	'<td[^>]*>[\s\t\n\r]*(?P<art>[\w]*?)[\s\t\n\r]*</td>[\s\t\n\r]*'.
 	'<td[^>]*>[\s\t\n\r]*(?P<note>[^<]*?)[\s\t\n\r]*'.
 		'(<a(.*?)href="(?<detailpage>([^"]*))"(.*?)</a>)?[\s\t\n\r]*'.
 	'</td>[\s\t\n\r]*'.
@@ -173,3 +173,4 @@ while (preg_match('#<a(.*?)href="(?P<href>.*?)"(.*?)title="Leistungen für Absch
 }
 curl_close($ch);
 print(json_encode($abschluesse));
+print "\n";
